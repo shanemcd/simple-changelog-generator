@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ansible-runner run -r action --roles-path=/ansible/roles --inventory /ansible/inventory.ini /output --role-vars repo=$1 -v
+
+output=$(cat /output/changelog)
+echo "::set-output name=changelog::$output"

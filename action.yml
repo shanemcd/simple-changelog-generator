@@ -1,0 +1,17 @@
+name: 'A Simple Changelog Generator'
+description: 'Auto-generates changelogs using hidden metadata GitHub PR descriptions.'
+inputs:
+  repo:
+    description: 'Repo to scan. Must be formatted as owner/repo.'
+    required: true
+outputs:
+  changelog:
+    description: 'A list of markdown-formatted changelog entries. Attributes the author and provides link to the associated PR.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repo }}
+branding:
+  icon: 'edit'
+  color: 'gray-dark'
